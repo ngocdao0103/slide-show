@@ -35,10 +35,16 @@ function previous() {
     slideShow();
 }
 
-var play;
+var auto;
+var playing = false;
 function play() {
-    play = setInterval(next, 1000);
+    console.log(playing);
+    if(!playing) {
+        playing = true;
+        auto = setInterval(next, 1000);
+    }
 }
 function stop() {
-    clearInterval(play)
+    playing = false;
+    clearInterval(auto)
 }
